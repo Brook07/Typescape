@@ -1,6 +1,6 @@
 # Player.gd
 extends CharacterBody2D
-
+@onready var JumpAudio = preload("res://assets/Audio/jump.wav")
 @onready var sprite = $AnimatedSprite2D
 @onready var command_input = $CommandInputField
 @onready var wall_detector = $WallDetector
@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var countdown_label = $CountdownLabel
 @onready var slider_coillsion = $slider_collision
 @onready var normal_collider = $CollisionShape2D
+
 
 var gravity = 500
 var jump_velocity = -125
@@ -133,6 +134,7 @@ func jump():
 	if is_on_floor():
 		velocity.y = jump_velocity
 		is_jumping = true
+		audio_player.play_FX(JumpAudio, 12)
 		sprite.play("jump")
 
 func slide():

@@ -1,7 +1,8 @@
-[gd_scene load_steps=56 format=3 uid="uid://b3t1lqr856byp"]
+[gd_scene load_steps=57 format=3 uid="uid://b3t1lqr856byp"]
 
 [ext_resource type="Texture2D" uid="uid://ch084kp0t0yuq" path="res://assets/Home_Page/frame_apngframe01.png" id="1_151ox"]
 [ext_resource type="Script" path="res://scripts/home.gd" id="1_gucr0"]
+[ext_resource type="Script" path="res://scripts/home_page.gd" id="1_nhk2h"]
 [ext_resource type="Texture2D" uid="uid://ck133x52bl1o2" path="res://assets/Home_Page/frame_apngframe02.png" id="2_fycdp"]
 [ext_resource type="Script" path="res://scripts/start.gd" id="2_opv5p"]
 [ext_resource type="Texture2D" uid="uid://bkjtgphxv3edu" path="res://assets/Home_Page/frame_apngframe03.png" id="3_p5rt7"]
@@ -210,7 +211,8 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ceq4j"]
 
-[node name="Control" type="Node2D"]
+[node name="Control2" type="Node2D"]
+script = ExtResource("1_nhk2h")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
