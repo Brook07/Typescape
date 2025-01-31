@@ -1,20 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://difxnc65k285i"]
 
-[ext_resource type="PackedScene" uid="uid://b3t1lqr856byp" path="res://scenes/Home_Page.tscn" id="1_41l32"]
+[ext_resource type="PackedScene" uid="uid://bijmdan43u5sy" path="res://scenes/Home_Page.tscn" id="1_41l32"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3tby0"]
 
 [sub_resource type="GDScript" id="GDScript_xrlu4"]
 resource_local_to_scene = true
 script/source = "extends Button
-
+@onready var buttonPressed = preload(\"res://assets/Audio/click.wav\")
 func _on_Start_pressed():
 	# Ensure the path is correct for the levels scene
+	audio_player.play_FX(buttonPressed)
 	get_tree().change_scene_to_file(\"res://scenes/levels/level_1.tscn\")
 	print(\"level 1 pressed\")
 
 
 func _on_level_2_pressed():
+	audio_player.play_FX(buttonPressed)
 	get_tree().change_scene_to_file(\"res://scenes/levels/level_2.tscn\")
 	print(\"level 2 pressed\")
 	pass # Replace with function body.

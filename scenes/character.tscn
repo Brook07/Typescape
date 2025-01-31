@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bqajbk163myjh"]
+[gd_scene load_steps=50 format=3 uid="uid://bqajbk163myjh"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_k3ag3"]
 [ext_resource type="FontFile" uid="uid://dgsrg1r6y53js" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_bqyrm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bn1xlm8awksog" path="res://assets/New Character/body_template.png" id="4_yagx3"]
 [ext_resource type="Script" path="res://scripts/raycast_for_jump.gd" id="5_bu15e"]
 [ext_resource type="FontFile" uid="uid://qhh3ydhtd2fj" path="res://assets/fonts/PixelOperator8.ttf" id="5_jwyxa"]
+[ext_resource type="PackedScene" uid="uid://co8h58skd78bs" path="res://scenes/pause_menu.tscn" id="7_1mbyq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npiow"]
 atlas = ExtResource("4_yagx3")
@@ -389,6 +390,13 @@ clip_text = true
 uppercase = true
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Pause Menu" parent="." instance=ExtResource("7_1mbyq")]
+visible = false
+offset_left = 70.0
+offset_top = -100.0
+offset_right = 70.0
+offset_bottom = -100.0
 
 [connection signal="child_entered_tree" from="WallDetector" to="WallDetector" method="_on_child_entered_tree"]
 [connection signal="child_entered_tree" from="CeilingDetector" to="CeilingDetector" method="_on_child_entered_tree"]

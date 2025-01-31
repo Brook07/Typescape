@@ -11,7 +11,7 @@ extends CharacterBody2D
 @onready var countdown_label = $CountdownLabel
 @onready var slider_coillsion = $slider_collision
 @onready var normal_collider = $CollisionShape2D
-
+@onready var pause_menu_display = $"Pause Menu"
 
 var gravity = 500
 var jump_velocity = -125
@@ -21,8 +21,11 @@ var word_manager
 var command_handler
 var countdown_time = 3
 var is_sliding = false
+var is_paused = false
 	
 func _ready():
+	audio_player.play_music_background()
+	
 	# Initial setup
 	command_input.visible = false
 	word_label.visible = false
@@ -31,14 +34,27 @@ func _ready():
 	wall_detector.enabled = true
 	
 	# Setup countdown
-	set_physics_process(false)  # Disable physics initially
-	set_process_input(false)   # Disable input initially
+	set_physics_process(false)  
+	set_process_input(false)   
 	countdown_label.text = str(countdown_time)
 	countdown_label.visible = true
 	
+	#pause menu setup
+	pause_menu_display.resume_pressed.connect(on_resume_clicked)
+	pause_menu_display.quit_pressed.connect(on_quit_pressed)
+
 	_setup_managers()
 	start_countdown()
-	
+
+func on_resume_clicked():
+		Engine.time_scale = 1
+		pause_menu_display.hide()
+		set_process_input(true)  
+		is_paused = false
+
+func on_quit_pressed():
+	get_tree().change_scene_to_file("res://scenes/Home_Page.tscn")
+
 func start_countdown():
 	startup_timer.wait_time = 1
 	startup_timer.start()
@@ -68,6 +84,7 @@ func _setup_managers():
 	update_word_display()
 
 func _physics_process(delta):
+	
 	_apply_gravity(delta)
 	_handle_movement()
 	_show_jump_prompt()
@@ -75,13 +92,26 @@ func _physics_process(delta):
 	move_and_slide()
 	_update_animation()
 
+func check_pause_menu():
+	if Input.is_action_pressed("pause"):
+		if is_paused:
+			set_process_input(false)   
+			pause_menu_display.hide()
+			Engine.time_scale = 1
+		else:
+			set_process_input(false)   
+			pause_menu_display.show()
+			Engine.time_scale = 0
+		is_paused = !is_paused
+	
+	
+	
 func _apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 func _handle_movement():
-	velocity.x = player_speed
-	
+	velocity.x = player_speed	
 
 func _check_wall_ahead():
 	if wall_detector.is_colliding() :
@@ -98,15 +128,20 @@ func _check_ceiling_ahead():
 		return false
 
 func _show_jump_prompt():
+	if is_paused:
+		return
 	word_label.visible = true
 	if !word_label.text:
 		update_word_display()
 
 func _hide_jump_prompt():
+	if is_paused:
+		return
 	word_label.visible = false
 	command_input.visible = false
 
 func _input(event):
+	check_pause_menu()
 	if event.is_action_pressed("ui_accept"):
 		_toggle_command_input()
 
@@ -120,6 +155,8 @@ func _toggle_command_input():
 			command_input.text = ""
 
 func _update_animation():
+	if is_paused:
+		sprite.play("idle")
 	if not is_on_floor():
 		sprite.play("jump")
 	elif velocity.x != 0 and not is_sliding:
@@ -130,6 +167,8 @@ func _update_animation():
 		sprite.play("idle")
 
 func jump():
+	if is_paused:
+		return
 	print("jumping")
 	if is_on_floor():
 		velocity.y = jump_velocity

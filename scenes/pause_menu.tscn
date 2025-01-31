@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://co8h58skd78bs"]
+
+[ext_resource type="FontFile" uid="uid://qhh3ydhtd2fj" path="res://assets/fonts/PixelOperator8.ttf" id="1_17nb0"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_yv7os"]
+
+[sub_resource type="Theme" id="Theme_cisxv"]
+
+[node name="Pause Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yv7os")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 102.0
+offset_bottom = 56.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="resume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cisxv")
+theme_override_fonts/font = ExtResource("1_17nb0")
+theme_override_font_sizes/font_size = 8
+text = "Resume"
+
+[node name="settings" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cisxv")
+theme_override_fonts/font = ExtResource("1_17nb0")
+theme_override_font_sizes/font_size = 8
+text = "Settings"
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cisxv")
+theme_override_fonts/font = ExtResource("1_17nb0")
+theme_override_font_sizes/font_size = 8
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

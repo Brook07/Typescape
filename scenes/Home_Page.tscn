@@ -1,8 +1,7 @@
-[gd_scene load_steps=57 format=3 uid="uid://b3t1lqr856byp"]
+[gd_scene load_steps=57 format=3 uid="uid://bijmdan43u5sy"]
 
 [ext_resource type="Texture2D" uid="uid://ch084kp0t0yuq" path="res://assets/Home_Page/frame_apngframe01.png" id="1_151ox"]
 [ext_resource type="Script" path="res://scripts/home.gd" id="1_gucr0"]
-[ext_resource type="Script" path="res://scripts/home_page.gd" id="1_nhk2h"]
 [ext_resource type="Texture2D" uid="uid://ck133x52bl1o2" path="res://assets/Home_Page/frame_apngframe02.png" id="2_fycdp"]
 [ext_resource type="Script" path="res://scripts/start.gd" id="2_opv5p"]
 [ext_resource type="Texture2D" uid="uid://bkjtgphxv3edu" path="res://assets/Home_Page/frame_apngframe03.png" id="3_p5rt7"]
@@ -52,6 +51,26 @@
 [ext_resource type="FontFile" uid="uid://dgsrg1r6y53js" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="47_jpsih"]
 [ext_resource type="FontFile" uid="uid://qhh3ydhtd2fj" path="res://assets/fonts/PixelOperator8.ttf" id="48_em755"]
 [ext_resource type="Script" path="res://scenes/quit.gd" id="50_8gykx"]
+
+[sub_resource type="GDScript" id="GDScript_nqeww"]
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+ # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_leaderboard_pressed():
+	pass # Replace with function body.
+
+
+func _on_setting_pressed():
+	pass # Replace with function body.
+"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6p5tp"]
 animations = [{
@@ -212,7 +231,7 @@ animations = [{
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ceq4j"]
 
 [node name="Control2" type="Node2D"]
-script = ExtResource("1_nhk2h")
+script = SubResource("GDScript_nqeww")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -305,4 +324,6 @@ text = "TYPESCAPE"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Start" to="VBoxContainer/Start" method="_on_Start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Leaderboard" to="." method="_on_leaderboard_pressed"]
+[connection signal="pressed" from="VBoxContainer/Setting" to="." method="_on_setting_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="Sprite2D" method="_on_quit_pressed"]

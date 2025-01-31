@@ -1,7 +1,8 @@
 extends Sprite2D
-
+@onready var buttonPressed = preload("res://assets/Audio/click.wav")
 func _ready():
-	$AnimatedSprite2D.play()  # Play the background animation, if applicable.
+	$AnimatedSprite2D.play()  
 
 func _on_quit_pressed() -> void:
-	get_tree().quit()  # This will close the application/game.
+	audio_player.play_FX(buttonPressed)
+	get_tree().quit()  
