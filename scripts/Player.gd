@@ -173,7 +173,7 @@ func jump():
 	if is_on_floor():
 		velocity.y = jump_velocity
 		is_jumping = true
-		audio_player.play_FX(JumpAudio, 12)
+		audio_player.play_FX(JumpAudio, 3)
 		sprite.play("jump")
 
 func slide():

@@ -10,7 +10,11 @@ func play_music(music: AudioStream, volume = 0.0):
 	play()
 
 func play_music_background():
-	play_music(background_music, 2.0)
+	play_music(background_music)
+	connect("finished", Callable(self, "_on_loop_sound").bind())
+
+func _on_loop_sound():
+	play()
 
 func play_FX(stream: AudioStream, volume = 0.0):
 	var fx_player = AudioStreamPlayer.new() 

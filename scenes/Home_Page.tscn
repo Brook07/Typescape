@@ -247,6 +247,9 @@ script = ExtResource("1_gucr0")
 position = Vector2(578.5, 328.5)
 scale = Vector2(2.41875, 2.41852)
 sprite_frames = SubResource("SpriteFrames_6p5tp")
+autoplay = "default"
+frame = 47
+frame_progress = 1.0
 script = ExtResource("47_38qcs")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
