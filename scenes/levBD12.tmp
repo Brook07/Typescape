@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://difxnc65k285i"]
+
+[ext_resource type="PackedScene" uid="uid://bijmdan43u5sy" path="res://scenes/Home_Page.tscn" id="1_41l32"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3tby0"]
+
+[sub_resource type="GDScript" id="GDScript_xrlu4"]
+resource_local_to_scene = true
+script/source = "extends Button
+@onready var buttonPressed = preload(\"res://assets/Audio/click.wav\")
+func _on_Start_pressed():
+	# Ensure the path is correct for the levels scene
+	audio_player.play_FX(buttonPressed)
+	LoadingScreen.change_scene(\"res://scenes/levels/level_1.tscn\")
+
+
+func _on_level_2_pressed():
+	audio_player.play_FX(buttonPressed)
+	LoadingScreen.change_scene(\"res://scenes/levels/level_2.tscn\")
+	pass # Replace with function body.
+"
+
+[node name="Control" instance=ExtResource("1_41l32")]
+
+[node name="AnimatedSprite2D" parent="Sprite2D" index="0"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_3tby0")
+position = Vector2(573.5, 324.5)
+scale = Vector2(2.39792, 2.38889)
+frame_progress = 0.403529
+
+[node name="VBoxContainer" parent="." index="2"]
+offset_left = 392.0
+offset_top = 84.0
+offset_right = 775.0
+offset_bottom = 610.0
+
+[node name="Start" parent="VBoxContainer" index="0"]
+theme_override_constants/outline_size = 10
+text = "Level 1"
+script = SubResource("GDScript_xrlu4")
+
+[node name="Leaderboard" parent="VBoxContainer" index="1"]
+theme_override_font_sizes/font_size = 27
+text = "Level 2"
+
+[node name="Setting" parent="VBoxContainer" index="2"]
+theme_override_font_sizes/font_size = 26
+text = "Level 3"
+
+[node name="Quit" parent="VBoxContainer" index="3"]
+text = "Level 4"
+
+[node name="Camera2D" parent="." index="3"]
+position = Vector2(580, 319)
+
+[connection signal="pressed" from="VBoxContainer/Leaderboard" to="VBoxContainer/Start" method="_on_level_2_pressed"]

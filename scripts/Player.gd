@@ -53,7 +53,7 @@ func on_resume_clicked():
 		is_paused = false
 
 func on_quit_pressed():
-	get_tree().change_scene_to_file("res://scenes/Home_Page.tscn")
+	LoadingScreen.load_scene("res://scenes/Home_Page.tscn")
 
 func start_countdown():
 	startup_timer.wait_time = 1

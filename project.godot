@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 audio_player="*res://scenes/audio_player.tscn"
+LoadingScreen="*res://scenes/loading screen.tscn"
+LevelCounter="*res://scripts/level counter.gd"
 
 [display]
 

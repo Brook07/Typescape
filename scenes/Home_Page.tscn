@@ -238,7 +238,6 @@ texture_filter = 1
 offset_right = 1154.0
 offset_bottom = 645.0
 expand_mode = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 script = ExtResource("1_gucr0")

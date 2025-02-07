@@ -11,14 +11,16 @@ script/source = "extends Button
 func _on_Start_pressed():
 	# Ensure the path is correct for the levels scene
 	audio_player.play_FX(buttonPressed)
-	get_tree().change_scene_to_file(\"res://scenes/levels/level_1.tscn\")
-	print(\"level 1 pressed\")
+	LevelCounter.level = 1
+	print(\"current level : \" + str(LevelCounter.level))
+	LoadingScreen.change_scene(\"res://scenes/levels/level_1.tscn\")
 
 
 func _on_level_2_pressed():
 	audio_player.play_FX(buttonPressed)
-	get_tree().change_scene_to_file(\"res://scenes/levels/level_2.tscn\")
-	print(\"level 2 pressed\")
+	LevelCounter.level = 2
+	print(\"current level : \" + str(LevelCounter.level))
+	LoadingScreen.change_scene(\"res://scenes/levels/level_2.tscn\")
 	pass # Replace with function body.
 "
 
@@ -29,7 +31,6 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_3tby0")
 position = Vector2(573.5, 324.5)
 scale = Vector2(2.39792, 2.38889)
-autoplay = "default"
 frame_progress = 0.403529
 
 [node name="VBoxContainer" parent="." index="2"]
