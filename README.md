@@ -43,7 +43,7 @@ Hardware: Basic integrated graphics or dedicated GPU for smooth gameplay.
 Clone this repository:
 
 ```bash
-git clone https://github.com/sthaarwin/Typescape.git
+git clone https://github.com/Brook07/Typescape.git
 ```
 
 This will download the project files into a folder named Project-TYPESCAPE.
