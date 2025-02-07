@@ -41,19 +41,15 @@ offset_bottom = 610.0
 
 [node name="Start" parent="VBoxContainer" index="0"]
 theme_override_constants/outline_size = 10
-text = "Level 1"
+text = "Easy"
 script = SubResource("GDScript_xrlu4")
 
 [node name="Leaderboard" parent="VBoxContainer" index="1"]
 theme_override_font_sizes/font_size = 27
-text = "Level 2"
+text = "Medium"
 
-[node name="Setting" parent="VBoxContainer" index="2"]
-theme_override_font_sizes/font_size = 26
-text = "Level 3"
-
-[node name="Quit" parent="VBoxContainer" index="3"]
-text = "Level 4"
+[node name="Quit" parent="VBoxContainer" index="2"]
+text = "Hard"
 
 [node name="Camera2D" parent="." index="3"]
 position = Vector2(580, 319)
