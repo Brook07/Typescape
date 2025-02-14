@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://difxnc65k285i"]
+[gd_scene load_steps=5 format=3 uid="uid://difxnc65k285i"]
 
 [ext_resource type="PackedScene" uid="uid://bijmdan43u5sy" path="res://scenes/Home_Page.tscn" id="1_41l32"]
+[ext_resource type="Script" path="res://scenes/level_3.gd" id="2_wwsq0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3tby0"]
 
@@ -21,6 +22,13 @@ func _on_level_2_pressed():
 	LevelCounter.level = 2
 	print(\"current level : \" + str(LevelCounter.level))
 	LoadingScreen.change_scene(\"res://scenes/levels/level_2.tscn\")
+	pass # Replace with function body.
+
+func _on_level_3_pressed():
+	audio_player.play_FX(buttonPressed)
+	LevelCounter.level = 3
+	print(\"current level : \" + str(LevelCounter.level))
+	LoadingScreen.change_scene(\"res://scenes/levels/level_3.tscn\")
 	pass # Replace with function body.
 "
 
@@ -50,8 +58,10 @@ text = "Medium"
 
 [node name="Quit" parent="VBoxContainer" index="2"]
 text = "Hard"
+script = ExtResource("2_wwsq0")
 
 [node name="Camera2D" parent="." index="3"]
 position = Vector2(580, 319)
 
 [connection signal="pressed" from="VBoxContainer/Leaderboard" to="VBoxContainer/Start" method="_on_level_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
