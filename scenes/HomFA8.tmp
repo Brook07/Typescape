@@ -52,6 +52,33 @@
 [ext_resource type="FontFile" uid="uid://qhh3ydhtd2fj" path="res://assets/fonts/PixelOperator8.ttf" id="48_em755"]
 
 [sub_resource type="GDScript" id="GDScript_nqeww"]
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+ # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_leaderboard_pressed():
+	pass # Replace with function body.
+
+
+func _on_setting_pressed():
+	pass # Replace with function body.
+
+
+func _on_quit_pressed() -> void:
+	func _on_level_3_pressed():
+	audio_player.play_FX(buttonPressed)
+	LevelCounter.level = 3
+	print(\"current level : \" + str(LevelCounter.level))
+	LoadingScreen.change_scene(\"res://scenes/levels/level_3.tscn\")
+	pass # Replace with function body.
+"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6p5tp"]
 animations = [{
@@ -208,20 +235,10 @@ animations = [{
 [sub_resource type="GDScript" id="GDScript_s0i00"]
 script/source = "extends Button
 @onready var buttonPressed = preload(\"res://assets/Audio/click.wav\")
-func _on_Quit_pressed():
-	# Ensure the path is correct for the levels scene
-	audio_player.play_FX(buttonPressed)
-	LevelCounter.level = 1
-	print(\"current level : \" + str(LevelCounter.level))
-	LoadingScreen.change_scene(\"res://scenes/levels/level_3.tscn\")
 
-
-func _on_level_3_pressed():
-	audio_player.play_FX(buttonPressed)
-	LevelCounter.level = 3
-	print(\"current level : \" + str(LevelCounter.level))
-	LoadingScreen.change_scene(\"res://scenes/levels/level_3.tscn\")
-	pass # Replace with function body.
+func _on_Start_pressed():
+	audio_player.playFX(buttonPressed)
+	get_tree().change_scene_to_file(\"res://scenes/levels/level_3.tscn\")
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0n4ic"]
