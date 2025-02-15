@@ -52,8 +52,12 @@ func on_resume_clicked():
 		set_process_input(true)  
 		is_paused = false
 
-func on_quit_pressed():
-	LoadingScreen.load_scene("res://scenes/Home_Page.tscn")
+func on_quit_pressed():	
+	Engine.time_scale = 1
+	pause_menu_display.hide()
+	set_process_input(true) 
+	#LoadingScreen.load_scene("res://scenes/Home_Page.tscn")
+	LevelCounter._goto_homepage()  
 
 func start_countdown():
 	startup_timer.wait_time = 1
