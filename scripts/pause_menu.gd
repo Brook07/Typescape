@@ -1,5 +1,6 @@
 extends Control
 signal resume_pressed
+signal restart_pressed
 signal quit_pressed
 
 var buttonPressed = preload("res://assets/Audio/click.wav")
@@ -21,3 +22,8 @@ func _on_resume_pressed():
 func _on_quit_pressed():
 	audio_player.play_FX(buttonPressed)
 	quit_pressed.emit()
+
+
+func _on_restart_pressed():
+	audio_player.play_FX(buttonPressed)
+	restart_pressed.emit()

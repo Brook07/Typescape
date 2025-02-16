@@ -5,14 +5,22 @@ class_name WordManager
 var jump_words = []  # Remove type hint for Array[String] as it's causing issues
 var current_word = ""
 var previous_word = ""
-
-const WORDS_FILE_PATH = "res://data/jump_words.txt"
+var WORDS_FILE_PATH
 
 func _ready():
 	load_words()
 	pick_random_word()
 
 func load_words():
+	if LevelCounter.level == 1:
+		WORDS_FILE_PATH = "res://data/easy_words.txt"
+	elif LevelCounter.level == 2:
+		WORDS_FILE_PATH = "res://data/medium_words.txt"
+	elif LevelCounter.level == 3:
+		WORDS_FILE_PATH = "res://data/hard_words.txt"
+	else:
+		WORDS_FILE_PATH = "res://data/jump.txt"
+	
 	if FileAccess.file_exists(WORDS_FILE_PATH):
 		print("file found")
 		var file = FileAccess.open(WORDS_FILE_PATH, FileAccess.READ)

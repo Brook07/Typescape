@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://difxnc65k285i"]
+[gd_scene load_steps=7 format=3 uid="uid://difxnc65k285i"]
 
 [ext_resource type="PackedScene" uid="uid://bijmdan43u5sy" path="res://scenes/Home_Page.tscn" id="1_41l32"]
 [ext_resource type="Script" path="res://scenes/level_3.gd" id="2_wwsq0"]
+[ext_resource type="FontFile" uid="uid://qhh3ydhtd2fj" path="res://assets/fonts/PixelOperator8.ttf" id="3_f5no3"]
+[ext_resource type="Script" path="res://scripts/start.gd" id="4_qqf52"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3tby0"]
 
@@ -41,7 +43,14 @@ position = Vector2(573.5, 324.5)
 scale = Vector2(2.39792, 2.38889)
 frame_progress = 0.403529
 
+[node name="ColorRect" parent="Sprite2D" index="1"]
+offset_left = -15.0
+offset_top = -24.0
+offset_right = 1178.0
+offset_bottom = 681.0
+
 [node name="VBoxContainer" parent="." index="2"]
+visible = false
 offset_left = 392.0
 offset_top = 84.0
 offset_right = 775.0
@@ -63,5 +72,50 @@ script = ExtResource("2_wwsq0")
 [node name="Camera2D" parent="." index="3"]
 position = Vector2(580, 319)
 
+[node name="VBoxContainer3" type="VBoxContainer" parent="." index="5"]
+offset_left = 385.0
+offset_top = 287.0
+offset_right = 767.0
+offset_bottom = 486.0
+
+[node name="Start" type="Button" parent="VBoxContainer3" index="0"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_constants/h_separation = 12
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("3_f5no3")
+theme_override_font_sizes/font_size = 27
+text = "Easy"
+expand_icon = true
+script = ExtResource("4_qqf52")
+
+[node name="Start2" type="Button" parent="VBoxContainer3" index="1"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_constants/h_separation = 12
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("3_f5no3")
+theme_override_font_sizes/font_size = 27
+text = "Medium"
+expand_icon = true
+script = ExtResource("4_qqf52")
+
+[node name="Start3" type="Button" parent="VBoxContainer3" index="2"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_constants/h_separation = 12
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("3_f5no3")
+theme_override_font_sizes/font_size = 27
+text = "Hard"
+expand_icon = true
+script = ExtResource("4_qqf52")
+
 [connection signal="pressed" from="VBoxContainer/Leaderboard" to="VBoxContainer/Start" method="_on_level_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer3/Start" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="VBoxContainer3/Start2" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="VBoxContainer3/Start3" to="." method="_on_hard_pressed"]

@@ -58,9 +58,10 @@ func _process(delta):
 			scene_path = ""
 
 func change_scene(path: String) -> void:
+	get_tree().change_scene_to_file(path)
 	# Ensure a clean state and reload the scene
-	control.hide()  # Hide the control before switching scenes
-	progressbar.value = 0  # Reset progress bar
-	loading_status = THREAD_LOAD_IN_PROGRESS  # Reset loading status
-	# Load the new scene
-	load_scene(path)
+	#control.hide()  # Hide the control before switching scenes
+	#progressbar.value = 0  # Reset progress bar
+	#loading_status = THREAD_LOAD_IN_PROGRESS  # Reset loading status
+	## Load the new scene
+	#load_scene(path)

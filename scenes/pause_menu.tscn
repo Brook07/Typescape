@@ -29,12 +29,12 @@ theme_override_fonts/font = ExtResource("1_17nb0")
 theme_override_font_sizes/font_size = 8
 text = "Resume"
 
-[node name="settings" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="restart" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_cisxv")
 theme_override_fonts/font = ExtResource("1_17nb0")
 theme_override_font_sizes/font_size = 8
-text = "Settings"
+text = "Restart"
 
 [node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -44,4 +44,5 @@ theme_override_font_sizes/font_size = 8
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

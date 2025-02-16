@@ -52,6 +52,19 @@
 [ext_resource type="FontFile" uid="uid://qhh3ydhtd2fj" path="res://assets/fonts/PixelOperator8.ttf" id="48_em755"]
 
 [sub_resource type="GDScript" id="GDScript_nqeww"]
+script/source = "extends Node2D
+func _on_easy_pressed():
+	LevelCounter.level = 1
+	LoadingScreen.change_scene(\"res://scenes/levels/level_1.tscn\")
+
+func _on_medium_pressed():
+	LevelCounter.level = 2
+	LoadingScreen.change_scene(\"res://scenes/levels/level_2.tscn\")
+
+func _on_hard_pressed():
+	LevelCounter.level = 3
+	LoadingScreen.change_scene(\"res://scenes/levels/level_3.tscn\")
+"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6p5tp"]
 animations = [{
@@ -252,8 +265,10 @@ frame_progress = 1.0
 script = ExtResource("47_38qcs")
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2D"]
-offset_right = 1163.0
-offset_bottom = 661.0
+offset_left = -89.0
+offset_top = -144.0
+offset_right = 1295.0
+offset_bottom = 865.0
 color = Color(0.0399417, 0.05, 0.0145, 0.439216)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

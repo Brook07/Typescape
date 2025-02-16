@@ -42,6 +42,7 @@ func _ready():
 	#pause menu setup
 	pause_menu_display.resume_pressed.connect(on_resume_clicked)
 	pause_menu_display.quit_pressed.connect(on_quit_pressed)
+	pause_menu_display.restart_pressed.connect(_on_restart_pressed)
 
 	_setup_managers()
 	start_countdown()
@@ -52,8 +53,23 @@ func on_resume_clicked():
 		set_process_input(true)  
 		is_paused = false
 
-func on_quit_pressed():
-	LoadingScreen.load_scene("res://scenes/Home_Page.tscn")
+func _on_restart_pressed():
+	Engine.time_scale = 1
+	pause_menu_display.hide()
+	set_process_input(true)  
+	if LevelCounter.level == 1:
+		get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
+	if LevelCounter.level == 2:
+		get_tree().change_scene_to_file("res://scenes/levels/level_2.tscn")
+	if LevelCounter.level == 3:
+		get_tree().change_scene_to_file("res://scenes/levels/level_3.tscn")
+
+func on_quit_pressed():	
+	Engine.time_scale = 1
+	pause_menu_display.hide()
+	set_process_input(true) 
+	#LoadingScreen.load_scene("res://scenes/Home_Page.tscn")
+	LevelCounter._goto_homepage()  
 
 func start_countdown():
 	startup_timer.wait_time = 1
