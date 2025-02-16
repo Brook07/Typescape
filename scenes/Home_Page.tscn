@@ -53,17 +53,38 @@
 
 [sub_resource type="GDScript" id="GDScript_nqeww"]
 script/source = "extends Node2D
+@onready var name_field = $VBoxContainer3/name_field
+@onready var error_window = $Window
+
+func check_name() -> bool:
+	LevelCounter.player_name = name_field.text
+	print(\"name  : \" + LevelCounter.player_name)
+	if  LevelCounter.player_name == \"\":
+		error_window.show()
+		return false
+	return true
+
 func _on_easy_pressed():
+	if not check_name():
+		return
 	LevelCounter.level = 1
 	LoadingScreen.change_scene(\"res://scenes/levels/level_1.tscn\")
 
 func _on_medium_pressed():
+	if not check_name():
+		return
 	LevelCounter.level = 2
 	LoadingScreen.change_scene(\"res://scenes/levels/level_2.tscn\")
 
 func _on_hard_pressed():
+	if not check_name():
+		return
 	LevelCounter.level = 3
 	LoadingScreen.change_scene(\"res://scenes/levels/level_3.tscn\")
+
+
+func _on_window_close_requested():
+	error_window.hide()
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6p5tp"]

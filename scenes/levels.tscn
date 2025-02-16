@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://difxnc65k285i"]
+[gd_scene load_steps=11 format=3 uid="uid://difxnc65k285i"]
 
 [ext_resource type="PackedScene" uid="uid://bijmdan43u5sy" path="res://scenes/Home_Page.tscn" id="1_41l32"]
 [ext_resource type="Script" path="res://scenes/level_3.gd" id="2_wwsq0"]
 [ext_resource type="FontFile" uid="uid://qhh3ydhtd2fj" path="res://assets/fonts/PixelOperator8.ttf" id="3_f5no3"]
 [ext_resource type="Script" path="res://scripts/start.gd" id="4_qqf52"]
+[ext_resource type="FontFile" uid="uid://dgsrg1r6y53js" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="5_m7kwj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3tby0"]
 
@@ -34,6 +35,20 @@ func _on_level_3_pressed():
 	pass # Replace with function body.
 "
 
+[sub_resource type="FontFile" id="FontFile_ckc0d"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_43mx4"]
+default_font = SubResource("FontFile_ckc0d")
+
+[sub_resource type="Theme" id="Theme_aav32"]
+Window/font_sizes/title_font_size = 16
+Window/fonts/title_font = ExtResource("5_m7kwj")
+
 [node name="Control" instance=ExtResource("1_41l32")]
 
 [node name="AnimatedSprite2D" parent="Sprite2D" index="0"]
@@ -44,10 +59,18 @@ scale = Vector2(2.39792, 2.38889)
 frame_progress = 0.403529
 
 [node name="ColorRect" parent="Sprite2D" index="1"]
-offset_left = -15.0
-offset_top = -24.0
-offset_right = 1178.0
-offset_bottom = 681.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+scale = Vector2(28.76, 16.12)
+
+[node name="ColorRect2" type="ColorRect" parent="Sprite2D" index="2"]
+offset_left = -89.0
+offset_top = -144.0
+offset_right = 1295.0
+offset_bottom = 865.0
+color = Color(0.0399417, 0.05, 0.0145, 0.439216)
 
 [node name="VBoxContainer" parent="." index="2"]
 visible = false
@@ -78,7 +101,21 @@ offset_top = 287.0
 offset_right = 767.0
 offset_bottom = 486.0
 
-[node name="Start" type="Button" parent="VBoxContainer3" index="0"]
+[node name="name_field" type="LineEdit" parent="VBoxContainer3" index="0"]
+layout_mode = 2
+theme = SubResource("Theme_43mx4")
+theme_override_fonts/font = ExtResource("3_f5no3")
+theme_override_font_sizes/font_size = 8
+placeholder_text = "Enter your name"
+alignment = 1
+expand_to_text_length = true
+clear_button_enabled = true
+shortcut_keys_enabled = false
+drag_and_drop_selection_enabled = false
+draw_control_chars = true
+caret_blink = true
+
+[node name="Start" type="Button" parent="VBoxContainer3" index="1"]
 custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
 theme_override_constants/outline_size = 12
@@ -90,7 +127,7 @@ text = "Easy"
 expand_icon = true
 script = ExtResource("4_qqf52")
 
-[node name="Start2" type="Button" parent="VBoxContainer3" index="1"]
+[node name="Start2" type="Button" parent="VBoxContainer3" index="2"]
 custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
 theme_override_constants/outline_size = 12
@@ -102,7 +139,7 @@ text = "Medium"
 expand_icon = true
 script = ExtResource("4_qqf52")
 
-[node name="Start3" type="Button" parent="VBoxContainer3" index="2"]
+[node name="Start3" type="Button" parent="VBoxContainer3" index="3"]
 custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
 theme_override_constants/outline_size = 12
@@ -114,8 +151,35 @@ text = "Hard"
 expand_icon = true
 script = ExtResource("4_qqf52")
 
+[node name="Window" type="Window" parent="." index="6"]
+title = "Error"
+initial_position = 1
+size = Vector2i(475, 80)
+visible = false
+wrap_controls = true
+unresizable = true
+popup_window = true
+max_size = Vector2i(32483, 32768)
+keep_title_visible = true
+content_scale_size = Vector2i(20, 0)
+content_scale_mode = 1
+content_scale_aspect = 3
+content_scale_factor = 1.27
+theme = SubResource("Theme_aav32")
+
+[node name="Label" type="Label" parent="Window" index="0"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("3_f5no3")
+theme_override_font_sizes/font_size = 16
+text = "
+Error!! name cannot be blank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="VBoxContainer/Leaderboard" to="VBoxContainer/Start" method="_on_level_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer3/Start" to="." method="_on_easy_pressed"]
 [connection signal="pressed" from="VBoxContainer3/Start2" to="." method="_on_medium_pressed"]
 [connection signal="pressed" from="VBoxContainer3/Start3" to="." method="_on_hard_pressed"]
+[connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]

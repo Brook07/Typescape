@@ -279,7 +279,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hvdu"]
 size = Vector2(19.5, 12.5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eg1ix"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5de2"]
 content_margin_left = 6.0
 bg_color = Color(0.0518154, 0.0518153, 3.00817e-09, 0)
 border_color = Color(0.839914, 0.760513, 0.93807, 1)
@@ -297,9 +297,9 @@ LineEdit/colors/font_placeholder_color = Color(0.71, 0.71, 0.71, 1)
 LineEdit/colors/selection_color = Color(1, 1, 1, 1)
 LineEdit/font_sizes/font_size = 8
 LineEdit/fonts/font = ExtResource("3_bqyrm")
-LineEdit/styles/focus = SubResource("StyleBoxFlat_eg1ix")
-LineEdit/styles/normal = SubResource("StyleBoxFlat_eg1ix")
-LineEdit/styles/read_only = SubResource("StyleBoxFlat_eg1ix")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_x5de2")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_x5de2")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_x5de2")
 
 [sub_resource type="Theme" id="Theme_n8uyc"]
 Label/font_sizes/font_size = 12
