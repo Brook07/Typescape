@@ -12,6 +12,9 @@ extends CharacterBody2D
 @onready var slider_coillsion = $slider_collision
 @onready var normal_collider = $CollisionShape2D
 @onready var pause_menu_display = $"Pause Menu"
+@onready var game_timer_label = $CanvasLayer/GameTimerLabel
+@onready var game_timer = $CanvasLayer/gametimer
+@onready var canvas_layer = $CanvasLayer
 
 var gravity = 500
 var jump_velocity = -125
@@ -22,7 +25,9 @@ var command_handler
 var countdown_time = 3
 var is_sliding = false
 var is_paused = false
-	
+var elapsed_time = 0
+var player_name = LevelCounter.player_name
+
 func _ready():
 	audio_player.play_music_background()
 	
@@ -38,14 +43,32 @@ func _ready():
 	set_process_input(false)   
 	countdown_label.text = str(countdown_time)
 	countdown_label.visible = true
+	game_timer_label.visible = false
+	game_timer.timeout.connect(_on_gametimer_timeout)
 	
 	#pause menu setup
 	pause_menu_display.resume_pressed.connect(on_resume_clicked)
 	pause_menu_display.quit_pressed.connect(on_quit_pressed)
 	pause_menu_display.restart_pressed.connect(_on_restart_pressed)
+	
+	
+	
+	game_timer.wait_time = 1.0 
+	game_timer.one_shot = false
+	game_timer_label.text = "Time: 0"
+	elapsed_time = 0
+
 
 	_setup_managers()
 	start_countdown()
+
+	
+
+func _on_gametimer_timeout():
+	elapsed_time += 1
+	var minutes = elapsed_time / 60
+	var seconds = elapsed_time % 60
+	game_timer_label.text = "Time: %02d:%02d" % [minutes, seconds]
 
 func on_resume_clicked():
 		Engine.time_scale = 1
@@ -84,11 +107,12 @@ func _on_timer_timeout():
 	else:
 		countdown_label.text = "GO!"
 		await get_tree().create_timer(0.5).timeout
-		
 		# Enable player control
 		set_physics_process(true)
 		set_process_input(true)
 		countdown_label.visible = false
+		game_timer_label.visible = true
+		game_timer.start() 
 		startup_timer.stop()
 
 func _setup_managers():
@@ -212,5 +236,3 @@ func slide():
 func update_word_display():
 	var new_word = word_manager.pick_random_word()
 	word_label.text = new_word
-
-	

@@ -257,7 +257,7 @@ Label/font_sizes/font_size = 12
 Label/fonts/font = ExtResource("5_jwyxa")
 
 [sub_resource type="LabelSettings" id="LabelSettings_5o0pb"]
-font_color = Color(0.708346, 0.453886, 0.305129, 1)
+outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_b08i6"]
@@ -315,10 +315,10 @@ target_position = Vector2(141, 0)
 script = ExtResource("5_bu15e")
 
 [node name="WordLabel" type="Label" parent="."]
-offset_left = -80.0
-offset_top = -67.0
-offset_right = 93.0
-offset_bottom = -44.0
+offset_left = -86.5
+offset_top = -68.0
+offset_right = 86.5
+offset_bottom = -45.0
 theme = SubResource("Theme_n8uyc")
 text = "WordLabel"
 label_settings = SubResource("LabelSettings_5o0pb")
@@ -341,22 +341,11 @@ autowrap_mode = 3
 clip_text = true
 uppercase = true
 
-[node name="Timer" type="Timer" parent="."]
-
-[node name="Pause Menu" parent="." instance=ExtResource("7_1mbyq")]
-visible = false
-offset_left = 70.0
-offset_top = -100.0
-offset_right = 70.0
-offset_bottom = -100.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GameTimerLabel" type="Label" parent="CanvasLayer"]
-offset_left = 161.0
-offset_top = -189.0
-offset_right = 365.0
-offset_bottom = -138.0
+[node name="GameTimerLabel" type="Label" parent="."]
+offset_left = 28.0
+offset_top = -106.5
+offset_right = 232.0
+offset_bottom = -55.5
 theme = SubResource("Theme_n8uyc")
 text = "1"
 label_settings = SubResource("LabelSettings_b08i6")
@@ -366,9 +355,18 @@ autowrap_mode = 3
 clip_text = true
 uppercase = true
 
-[node name="gametimer" type="Timer" parent="CanvasLayer"]
+[node name="Timer" type="Timer" parent="."]
+
+[node name="gametimer" type="Timer" parent="."]
+
+[node name="Pause Menu" parent="." instance=ExtResource("7_1mbyq")]
+visible = false
+offset_left = 70.0
+offset_top = -100.0
+offset_right = 70.0
+offset_bottom = -100.0
 
 [connection signal="child_entered_tree" from="WallDetector" to="WallDetector" method="_on_child_entered_tree"]
 [connection signal="child_entered_tree" from="CeilingDetector" to="CeilingDetector" method="_on_child_entered_tree"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="CanvasLayer/gametimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="gametimer" to="." method="_on_timer_timeout"]
