@@ -318,7 +318,6 @@ alignment = 1
 [node name="Start" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
-theme_override_constants/outline_size = 12
 theme_override_constants/h_separation = 12
 theme_override_constants/icon_max_width = 0
 theme_override_fonts/font = ExtResource("48_em755")
@@ -329,14 +328,12 @@ script = ExtResource("2_opv5p")
 
 [node name="Leaderboard" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("48_em755")
 theme_override_font_sizes/font_size = 25
 text = "Lederboard"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("48_em755")
 theme_override_font_sizes/font_size = 25
 text = "Quit
@@ -372,9 +369,9 @@ text = "TYPESCAPE"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="."]
-offset_left = 254.0
+offset_left = 245.0
 offset_top = 242.0
-offset_right = 926.0
+offset_right = 917.0
 offset_bottom = 266.0
 theme = SubResource("Theme_rq6kf")
 theme_override_fonts/font = ExtResource("48_em755")

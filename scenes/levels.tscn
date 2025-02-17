@@ -118,7 +118,7 @@ caret_blink = true
 [node name="Start" type="Button" parent="VBoxContainer3" index="1"]
 custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
-theme_override_constants/outline_size = 12
+theme_override_constants/outline_size = 4
 theme_override_constants/h_separation = 12
 theme_override_constants/icon_max_width = 0
 theme_override_fonts/font = ExtResource("3_f5no3")
@@ -130,7 +130,7 @@ script = ExtResource("4_qqf52")
 [node name="Start2" type="Button" parent="VBoxContainer3" index="2"]
 custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
-theme_override_constants/outline_size = 12
+theme_override_constants/outline_size = 4
 theme_override_constants/h_separation = 12
 theme_override_constants/icon_max_width = 0
 theme_override_fonts/font = ExtResource("3_f5no3")
@@ -142,7 +142,7 @@ script = ExtResource("4_qqf52")
 [node name="Start3" type="Button" parent="VBoxContainer3" index="3"]
 custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
-theme_override_constants/outline_size = 12
+theme_override_constants/outline_size = 4
 theme_override_constants/h_separation = 12
 theme_override_constants/icon_max_width = 0
 theme_override_fonts/font = ExtResource("3_f5no3")
@@ -159,7 +159,6 @@ visible = false
 wrap_controls = true
 unresizable = true
 popup_window = true
-max_size = Vector2i(32483, 32768)
 keep_title_visible = true
 content_scale_size = Vector2i(20, 0)
 content_scale_mode = 1
