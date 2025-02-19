@@ -6,3 +6,7 @@ zxc,Level 3,00:59
 Poshan,Level 1,01:34
 Poshan,Level 2,00:48
 Poshan,Level 3,01:05
+Arwin,Level 1,00:24
+Arwin,Level 1,00:24
+Arwin,Level 2,00:35
+Arwin,Level 3,00:52
