@@ -51,7 +51,11 @@ func _ready():
 	pause_menu_display.quit_pressed.connect(on_quit_pressed)
 	pause_menu_display.restart_pressed.connect(_on_restart_pressed)
 	
-	
+	var level_change = get_node("../Area2d") 
+	if level_change:
+		level_change.level_1_completed.connect(_on_level_completed.bind(1))
+		level_change.level_2_completed.connect(_on_level_completed.bind(2))
+		level_change.level_3_completed.connect(_on_level_completed.bind(3))
 	
 	game_timer.wait_time = 1.0 
 	game_timer.one_shot = false
@@ -62,7 +66,28 @@ func _ready():
 	_setup_managers()
 	start_countdown()
 
+func _on_level_completed(level_number: int):
+	var score_file = FileAccess.open("res://data/scores.txt", FileAccess.READ_WRITE)
+	if score_file == null:
+		score_file = FileAccess.open("res://data/scores.txt", FileAccess.WRITE)
 	
+	# Move to end of file for appending
+	score_file.seek_end()
+	 # Format time as MM:SS
+	var minutes = elapsed_time / 60
+	var seconds = elapsed_time % 60
+	var time_str = "%02d:%02d" % [minutes, seconds]
+	if level_number == 1:
+		LevelCounter.level_1_completion_time = time_str 
+	if level_number == 2:
+		LevelCounter.level_2_completion_time = time_str
+	if level_number == 3:
+		LevelCounter.level_3_completion_time = time_str
+	# Write score in format: PlayerName,Level,Time
+	var score_line = "%s,Level %d,%s\n" % [player_name, level_number, time_str]
+	score_file.store_string(score_line)
+	
+	score_file.close()
 
 func _on_gametimer_timeout():
 	elapsed_time += 1

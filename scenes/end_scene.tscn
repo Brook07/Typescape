@@ -1,0 +1,228 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfti3iwcs10yd"]
+
+[ext_resource type="Script" path="res://scripts/end_scene.gd" id="1_hu380"]
+[ext_resource type="Texture2D" uid="uid://bfqh1rrgxfxm7" path="res://assets/images/loading screen background.jpg" id="1_v6akv"]
+[ext_resource type="FontFile" uid="uid://dgsrg1r6y53js" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_12ncm"]
+[ext_resource type="FontFile" uid="uid://qhh3ydhtd2fj" path="res://assets/fonts/PixelOperator8.ttf" id="4_cqge0"]
+[ext_resource type="Script" path="res://scripts/start.gd" id="5_sjji7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5iwo"]
+
+[sub_resource type="Theme" id="Theme_pp4el"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rso7i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gi8ba"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hu380")
+
+[node name="background" type="TextureRect" parent="."]
+modulate = Color(0, 4.286, 0, 1)
+self_modulate = Color(0.900705, 0.900705, 0.900705, 0.635294)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -752.0
+offset_top = -452.5
+offset_right = 752.0
+offset_bottom = 452.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_v6akv")
+expand_mode = 1
+
+[node name="Title" type="Label" parent="."]
+modulate = Color(0.402331, 0.986625, 1, 1)
+show_behind_parent = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_k5iwo")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -435.0
+offset_top = 98.0
+offset_right = 435.0
+offset_bottom = 178.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = SubResource("Theme_pp4el")
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.411765, 1)
+theme_override_colors/font_outline_color = Color(0.286892, 0.818789, 1, 1)
+theme_override_fonts/font = ExtResource("3_12ncm")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rso7i")
+text = "ALL LEVEL COMPLETED"
+horizontal_alignment = 1
+
+[node name="label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.5
+offset_top = -138.0
+offset_right = 283.5
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_cqge0")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi8ba")
+text = "time taken to complete level : "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="easy_time" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.404
+anchor_right = 0.5
+anchor_bottom = 0.404
+offset_left = 78.0
+offset_top = 12.208
+offset_right = 489.0
+offset_bottom = 43.208
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_cqge0")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi8ba")
+text = "00:00"
+vertical_alignment = 1
+
+[node name="easy label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.404
+anchor_right = 0.5
+anchor_bottom = 0.404
+offset_left = -225.0
+offset_top = 12.208
+offset_right = 186.0
+offset_bottom = 43.208
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_cqge0")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi8ba")
+text = "easy level     : "
+vertical_alignment = 1
+
+[node name="medium_time" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.404
+anchor_right = 0.5
+anchor_bottom = 0.404
+offset_left = 78.0
+offset_top = 76.208
+offset_right = 489.0
+offset_bottom = 107.208
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_cqge0")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi8ba")
+text = "00:00"
+vertical_alignment = 1
+
+[node name="medium label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.404
+anchor_right = 0.5
+anchor_bottom = 0.404
+offset_left = -225.0
+offset_top = 76.208
+offset_right = 186.0
+offset_bottom = 107.208
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_cqge0")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi8ba")
+text = "medium level : "
+vertical_alignment = 1
+
+[node name="hard_time" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.404
+anchor_right = 0.5
+anchor_bottom = 0.404
+offset_left = 80.0
+offset_top = 139.208
+offset_right = 491.0
+offset_bottom = 170.208
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_cqge0")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi8ba")
+text = "00:00"
+vertical_alignment = 1
+
+[node name="hard label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.404
+anchor_right = 0.5
+anchor_bottom = 0.404
+offset_left = -225.0
+offset_top = 140.208
+offset_right = 186.0
+offset_bottom = 171.208
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_cqge0")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi8ba")
+text = "hard level     : "
+vertical_alignment = 1
+
+[node name="HOME" type="Button" parent="."]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -180.0
+offset_right = 119.0
+offset_bottom = -133.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 4
+theme_override_constants/h_separation = 12
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("4_cqge0")
+theme_override_font_sizes/font_size = 27
+text = "HOME"
+expand_icon = true
+script = ExtResource("5_sjji7")
+
+[connection signal="pressed" from="HOME" to="." method="_on_home_pressed"]

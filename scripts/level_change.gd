@@ -23,4 +23,4 @@ func _on_body_entered(body: Node2D) -> void:
 		elif LevelCounter.level == 3:
 			get_tree().change_scene_to_file("res://scenes/levels/level_3.tscn")
 		else:
-			get_tree().change_scene_to_file("res://scenes/Home_Page.tscn")
+			get_tree().change_scene_to_file("res://scenes/end_scene.tscn")

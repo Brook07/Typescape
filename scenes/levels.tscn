@@ -176,6 +176,9 @@ Error!! name cannot be blank"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label" parent="." index="7"]
+offset_left = 245.0
+
 [connection signal="pressed" from="VBoxContainer/Leaderboard" to="VBoxContainer/Start" method="_on_level_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer3/Start" to="." method="_on_easy_pressed"]

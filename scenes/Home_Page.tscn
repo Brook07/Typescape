@@ -369,6 +369,8 @@ text = "TYPESCAPE"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 254.0
 offset_left = 245.0
 offset_top = 242.0
 offset_right = 917.0
