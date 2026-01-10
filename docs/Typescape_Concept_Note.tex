@@ -1,0 +1,93 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+% Title formatting
+\titleformat{\section}[block]{\large\bfseries\centering}{}{0em}{}
+\titleformat{\subsection}[block]{\normalsize\bfseries}{}{0em}{}
+
+\begin{document}
+
+% Title page
+\begin{center}
+    {\LARGE \textbf{Kathmandu University}} \\[0.3cm]
+    {\large Department of Computer Science and Engineering} \\[0.2cm]
+    {\normalsize Dhulikhel, Kavre} \\[1.5cm]
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.3\textwidth]{logoku.png}
+        \label{kulogo}
+    \end{figure}\\[1cm]
+    {\huge \textbf{Project Concept Note}} \\[0.5cm]
+    {\large [Code No: COMP 342]} \\[2cm]
+    
+    \begin{minipage}[t]{0.45\textwidth}
+        \textbf{Submitted by:} \\[0.5cm]
+        \textbf{Masto Christmas Bhandari (Roll No: 08)} \\
+        \textbf{Utsav Adhikei (Roll No: 03)} \\
+        Department of Computer Science and Engineering \\
+        Kathmandu University
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \textbf{Submitted to:} \\[0.5cm]
+        \textbf{Mr. Dhiraj Shrestha} \\
+        Assistant Professor \\
+        Department of Computer Science and Engineering \\
+        Kathmandu University
+    \end{minipage}
+\end{center}
+
+\newpage
+
+\title{Typescape: A 2D Typing Challenge Game with Progressive Levels}
+\author{Masto Christmas Bhandari and Utsav Adhikei}
+\date{\today}
+\maketitle
+\begin{center}
+    {\Large \textbf{Concept Note}} \\
+    {\large Typescape — A 2D Typing Challenge} \\
+    \vspace{0.5cm}
+\end{center}
+
+\section*{Introduction}
+Typescape is a compact 2D typing game where players advance by correctly typing words shown on screen. The project focuses on applying practical graphics techniques to build a polished, responsive demo with clear audio-visual feedback.
+
+\section*{Objectives}
+\begin{itemize}[nosep]
+    \item Implement a tight typing-to-move interaction loop with instant feedback.
+    \item Create and animate pixel-art sprites and tilemap levels.
+    \item Use camera follow, parallax layers, and simple particle effects for polish.
+    \item Optimize rendering with texture atlases and minimal overdraw for smooth performance.
+    \item Document the asset pipeline and build steps for easy reproduction.
+\end{itemize}
+
+\section*{Key Features}
+\begin{itemize}[nosep]
+    \item Four progressive levels with increasing word difficulty and pacing.
+    \item Immediate visual/audio cues for correct/incorrect typing.
+    \item Leaderboard and simple performance metrics (speed, accuracy, score).
+    \item Exportable Godot project for Windows desktop.
+\end{itemize}
+
+\section*{Tools}
+Godot (3.x/4.x), GDScript; optional Python utilities for word-list management. Assets: pixel sprites, WAV audio, simple tilemaps.
+
+\section*{Deliverables}
+Playable demo, source project (`.godot`), asset folder, README with build/export instructions, and short documentation on asset pipeline and optimization notes.
+
+\section*{Timeline (2–4 weeks)}
+Prototype (input + word manager): 1 week. Levels, assets, polish: 1–2 weeks. Testing and packaging: 1 week.
+
+\section*{Expected Outcome}
+A concise, well-documented demo that demonstrates practical 2D graphics workflows and delivers an enjoyable typing challenge.
+
+\end{document}

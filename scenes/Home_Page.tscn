@@ -1,9 +1,9 @@
 [gd_scene load_steps=59 format=3 uid="uid://bijmdan43u5sy"]
 
 [ext_resource type="Texture2D" uid="uid://ch084kp0t0yuq" path="res://assets/Home_Page/frame_apngframe01.png" id="1_151ox"]
-[ext_resource type="Script" path="res://scripts/home.gd" id="1_gucr0"]
+[ext_resource type="Script" uid="uid://lbm45njkfmjf" path="res://scripts/home.gd" id="1_gucr0"]
 [ext_resource type="Texture2D" uid="uid://ck133x52bl1o2" path="res://assets/Home_Page/frame_apngframe02.png" id="2_fycdp"]
-[ext_resource type="Script" path="res://scripts/start.gd" id="2_opv5p"]
+[ext_resource type="Script" uid="uid://clfgyfs3ivoj2" path="res://scripts/start.gd" id="2_opv5p"]
 [ext_resource type="Texture2D" uid="uid://bkjtgphxv3edu" path="res://assets/Home_Page/frame_apngframe03.png" id="3_p5rt7"]
 [ext_resource type="Texture2D" uid="uid://dwegpjf77r18g" path="res://assets/Home_Page/frame_apngframe04.png" id="4_jmjby"]
 [ext_resource type="Texture2D" uid="uid://dtlcdyy0kokxb" path="res://assets/Home_Page/frame_apngframe05.png" id="5_3h0wc"]
@@ -47,7 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://cji5h7liv6tx5" path="res://assets/Home_Page/frame_apngframe44.png" id="43_jdi23"]
 [ext_resource type="Texture2D" uid="uid://ctuot4txu7ii5" path="res://assets/Home_Page/frame_apngframe45.png" id="44_gitme"]
 [ext_resource type="Texture2D" uid="uid://ola2rl1kgek5" path="res://assets/Home_Page/frame_apngframe46.png" id="45_6ukm2"]
-[ext_resource type="Script" path="res://scenes/animated_sprite_2d.gd" id="47_38qcs"]
+[ext_resource type="Script" uid="uid://02jmsmmixwd2" path="res://scenes/animated_sprite_2d.gd" id="47_38qcs"]
 [ext_resource type="FontFile" uid="uid://dgsrg1r6y53js" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="47_jpsih"]
 [ext_resource type="FontFile" uid="uid://qhh3ydhtd2fj" path="res://assets/fonts/PixelOperator8.ttf" id="48_em755"]
 
@@ -303,10 +303,10 @@ frame_progress = 1.0
 script = ExtResource("47_38qcs")
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2D"]
-offset_left = 3.0
-offset_top = -3.0
-offset_right = 1154.0
-offset_bottom = 647.0
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 1165.0
+offset_bottom = 648.0
 color = Color(0.0399417, 0.05, 0.0145, 0.439216)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

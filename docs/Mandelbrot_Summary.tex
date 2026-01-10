@@ -1,0 +1,36 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE \textbf{Visualizing the Mandelbrot Set: A GPU-Accelerated Approach}} \\[0.5cm]
+  {\large Rajat Dahal \quad Falano Dhiskino} \\[0.2cm]
+  {\small December 31, 2025}
+\end{center}
+
+\section*{Introduction}
+The project explores the Mandelbrot set using real-time rendering techniques. The Mandelbrot set consists of complex numbers \(c\) for which the iteration \(z_{n+1}=z_n^2+c\) (starting at \(z_0=0\)) does not diverge. By leveraging GPU fragment shaders we achieve smooth zooming and interactive exploration that is impractical with CPU-bound rendering.
+
+\section*{Mathematical Foundation}
+Use the escape-time algorithm per pixel:
+\begin{enumerate}
+  \item Map pixel coordinates to a complex point \(c\).
+  \item Iterate \(z_{n+1} = z_n^2 + c\) up to a maximum iteration count.
+  \item If \(|z|>2\) before the max iterations, record the escape iteration for coloring; otherwise treat the point as inside the set.
+\end{enumerate}
+
+\section*{Tools and Technologies}
+\begin{itemize}
+  \item Primary Framework: p5.js
+  \item Shading Language: GLSL (fragment shaders for escape-time computation)
+\end{itemize}
+
+\section*{Conclusion}
+Offloading iterative calculations to the GPU provides a large performance gain, enabling real-time interaction and high-resolution rendering. This work demonstrates coordinate mapping, shader pipelines, and practical GPU-accelerated visualization techniques.
+
+\end{document}
