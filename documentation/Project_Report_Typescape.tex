@@ -1,0 +1,266 @@
+% Project report for Typescape (LaTeX)
+\documentclass[12pt,a4paper,openany]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\geometry{a4paper, left=1.5in, top=0.75in, bottom=1.25in, right=1.25in}
+
+% Format chapters/sections spacing to match requested layout
+% Chapter title: 16pt bold
+\titleformat{\chapter}[hang]{\normalfont\fontsize{16}{20}\selectfont\bfseries}{\chaptername\ \thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{10pt}{8pt}
+% Section and subsection titles: 12pt bold
+\titleformat{\section}[hang]{\normalfont\fontsize{12}{14}\selectfont\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{6pt}{4pt}
+\titleformat{\subsection}[hang]{\normalfont\fontsize{12}{14}\selectfont\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+
+% Prevent insertion of blank pages when chapters start (single-sided layout)
+\let\cleardoublepage\clearpage
+\pagestyle{plain}
+
+% Ensure sections are numbered as chapter.section and show numbers
+\setcounter{secnumdepth}{2}
+
+% Counters and settings used in the titlepage template
+\newcounter{membercount}
+\setcounter{membercount}{2}
+\newcommand{\thecoursecode}{COMP 342}
+\newcommand{\theyear}{2026}
+
+% Custom title page following provided format (adapted to Typescape)
+\renewcommand{\maketitle}{%
+    \begin{titlepage}
+        \centering
+        \vspace*{0.3cm}
+        {\Large \textbf{KATHMANDU UNIVERSITY}\par}
+        \vspace{0.25cm}
+        {\large SCHOOL OF SCIENCE\par}
+        \vspace{0.15cm}
+        {\large DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING\par}
+        \vspace{1.3cm}
+
+        {\Large \textbf{PROJECT REPORT ON TYPESCAPE}\par}
+        \vspace{1.8cm}
+
+        \includegraphics[width=4cm]{ku_logo.png}
+        \vspace{1.3cm}
+
+        {\large \textbf{[Code No: \thecoursecode]}\par}
+        \vspace{0.3cm}
+        {\large For partial fulfillment of Year III / Semester I in Computer Science\par}
+        \vspace{1.3cm}
+
+        {\large \textbf{Submitted By:}\par}
+        \vspace{0.3cm}
+        {\large Utsav Adhikari (Roll No. 03)\par}
+        {\large Masto Christmas Bhandari (Roll No. 08)\par}
+        \vspace{1.3cm}
+
+        {\large \textbf{Submitted To:}\par}
+        \vspace{0.3cm}
+        {\large Mr. Dhiraj Shrestha\par}
+        \vspace{0.2cm}
+        {\large Department of Computer Science and Engineering\par}
+
+        \vfill
+        {\large February 9, 2026\par}
+        \thispagestyle{empty}
+    \end{titlepage}
+}
+
+\begin{document}
+\maketitle
+% put the abstract on its own page immediately after the title page
+% (no explicit \clearpage here to avoid inserting an extra blank page)
+% front-matter uses roman numerals (or hidden) — start with roman numbering for TOC
+\pagenumbering{roman}
+\setcounter{page}{1}
+\clearpage
+
+\clearpage
+\begin{abstract}
+Typescape is a compact 2D typing-challenge game developed as a mini project for the Computer Graphics. The game emphasizes the practical application of core graphics concepts by integrating typing-based gameplay with real-time visual feedback. Players progress through structured levels by correctly typing words displayed on the screen, with increasing difficulty affecting word complexity and pacing.  
+
+The project focuses on 2D graphics techniques such as pixel-art sprite creation, tilemap-based level design, camera follow systems, parallax scrolling, and simple particle effects to enhance visual polish. Immediate audio and visual cues are used to reinforce player interaction and feedback.  
+
+Developed using the Godot Engine, the project demonstrates efficient rendering practices through optimized asset usage and minimal overdraw, ensuring smooth performance. Typescape serves as a practical demonstration of applying computer graphics principles to create an interactive and visually engaging 2D game.
+\end{abstract}
+
+
+
+\tableofcontents
+\clearpage
+% start main content numbering here: Arabic, page 1
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\chapter{Introduction}
+
+\section{Background}
+Typing-based games have traditionally focused on improving typing speed and accuracy through repetitive drills, while most modern action and runner games rely heavily on reflex-based inputs such as tapping or swiping. In contrast, Typescape reimagines the runner genre by integrating typing mechanics as the primary mode of interaction. Player progression is driven entirely by correctly typing words displayed on the screen, replacing conventional movement controls.
+
+Typescape is a 2D typing-based game developed as a mini project for the Computer Graphics. The project emphasizes the application of practical 2D graphics techniques, including pixel-art rendering, tilemap-based level design, camera-follow systems, parallax scrolling, and particle effects. The game focuses on delivering fast, responsive audiovisual feedback through a tight typing-to-move interaction loop.
+
+Unlike endless runner games, Typescape follows a structured progression system where the game concludes after completing a selected difficulty level. This design promotes skill-based gameplay while maintaining clarity in game flow and performance evaluation.
+
+\section{Objectives}
+The main objectives of the project are:
+\begin{itemize}[nosep]
+  \item To develop an interactive 2D typing-based game where player movement is controlled through correct typing.
+  \item To apply core 2D computer graphics techniques such as sprite animation, tilemaps, camera follow, and parallax backgrounds.
+  \item To implement immediate visual and audio feedback for correct and incorrect typing input.
+  \item To generate dynamic word sequences with progressive difficulty using statistical methods.
+  \item To incorporate basic physics concepts such as gravity and collision detection to enable realistic interaction between the player character and the game environment.
+  \item To design and optimize a lightweight rendering and asset pipeline suitable for smooth real-time performance.
+\end{itemize}
+
+
+\section{Motivation and Significance}
+Most popular runner games such as \textit{Temple Run} and \textit{Subway Surfers} rely on reflex-driven mechanics that can become repetitive over time. Typescape introduces a cognitive challenge by replacing reflex-based movement with typing-based controls, requiring precision, focus, and mental engagement.
+
+The integration of typing mechanics with real-time 2D graphics creates a unique hybrid experience that enhances both gameplay engagement and typing skill development. From an academic perspective, the project provides hands-on experience in applying computer graphics principles within an interactive system, making it a valuable learning exercise.
+
+The significance of the project lies in:
+\begin{itemize}[nosep]
+  \item Encouraging cognitive skill development alongside interactive gameplay.
+  \item Demonstrating practical use of 2D graphics concepts in a real-time application.
+  \item Exploring a novel sub-genre of typing-based runner games.
+  \item Providing a scalable foundation for future expansion.
+\end{itemize}
+
+\chapter{Project Description}
+
+\section{System Architecture and Gameplay Mechanics}
+Typescape follows an auto-movement gameplay architecture where the player character continuously progresses through the game environment. Player movement is not controlled directly through traditional input keys; instead, progression depends entirely on correctly typing the displayed words.
+
+When a word is typed correctly within the required time, the character continues moving forward smoothly. If the player fails to type the word before encountering an obstacle, the character collides with the obstacle and halts movement. Progress resumes only after the correct word is entered. This creates a tight typing-to-movement interaction loop reinforced by immediate visual and audio feedback.
+
+The core components of the system include the character controller for movement handling, a collision detection system for obstacle interaction, a word display and typing input module, a dynamic word generation system, and a rendering system responsible for graphics, UI, and animations.
+
+\section{Word Generation and Difficulty Scaling}
+The word generation system is designed to provide dynamic and adaptive challenges across difficulty levels. Instead of relying solely on static word lists, Typescape employs a Markov Chain-based word generation model implemented using a Python utility.
+
+The model is trained on predefined word datasets to learn probabilistic character transitions. Generated words resemble realistic vocabulary while maintaining controlled randomness. Difficulty levels influence word length, letter frequency, and complexity:
+\begin{itemize}[nosep]
+  \item \textbf{Easy Level:} Short words composed of high-frequency letters.
+  \item \textbf{Medium Level:} Moderate-length words including common digraphs.
+  \item \textbf{Hard Level:} Longer words with lower-frequency letters and complex patterns.
+\end{itemize}
+
+Generated words are validated against difficulty constraints and stored in separate files for real-time use during gameplay.
+
+\section{Levels and Progression}
+The current implementation includes four progressive levels. Each level increases word complexity, spawn rate, and pacing, placing greater demands on typing speed and accuracy. The game is structured rather than endless; each level concludes after a predefined set of words and obstacles are successfully completed.
+
+Performance metrics such as words per minute (WPM), typing accuracy, and score are tracked during each run. A simple leaderboard system stores top scores in a text file, enabling performance comparison across multiple play sessions.
+
+\section{User Interface and Feedback System}
+The user interface is designed to provide immediate and clear feedback for all player actions. The HUD displays the active word, typed character progress, current score, and remaining lives or time where applicable.
+
+Correct inputs trigger positive visual cues and audio effects, while incorrect or delayed inputs result in error indicators and temporary movement interruption. At the end of each level, a summary screen presents key performance metrics to reinforce skill assessment and progression.
+
+\section{Technical Implementation}
+\textbf{Engine and Languages:}  
+The game is developed using the Godot Engine (version 3.x or 4.x), utilizing GDScript for gameplay logic, physics handling, and UI control. A lightweight Python utility, \texttt{Markovs\_Generator.py}, is used offline to generate and organize word lists using statistical methods.
+
+\textbf{Key Scripts and Responsibilities:}
+\begin{itemize}[nosep]
+  \item \texttt{WordManager.gd} — Manages word selection, validation, and difficulty scaling.
+  \item \texttt{Player.gd} — Handles automatic movement, animation states, gravity, and collision response.
+  \item \texttt{LevelManager.gd} — Coordinates level flow, obstacle placement, and progression logic.
+  \item \texttt{Markovs\_Generator.py} — Generates difficulty-based word datasets using a Markov Chain model.
+\end{itemize}
+
+\section{Project Structure}
+\begin{itemize}[nosep]
+  \item \texttt{scenes/} — Godot scene files for levels, player, and UI components
+  \item \texttt{scripts/} — GDScript gameplay logic and Python utilities
+  \item \texttt{assets/} — Pixel-art sprites, audio files, and fonts
+  \item \texttt{data/} — Generated word lists and saved leaderboard scores
+\end{itemize}
+
+\section{Asset Pipeline and Optimization}
+Game assets were created or collected in pixel-art format and organized using texture atlases to minimize draw calls and improve rendering efficiency. Tilemaps were designed modularly to promote reuse across levels. Godot’s import and compression settings were configured to balance visual quality and performance, ensuring smooth real-time gameplay with minimal overdraw.
+
+
+\chapter{Conclusion and Future Work}
+
+\section{Conclusion}
+Typescape demonstrates the effective integration of typing-based interaction with core 2D computer graphics techniques in a structured mini-game environment. The project successfully implements an auto-movement gameplay architecture where player progression is governed by accurate and timely typing, reinforced through real-time visual and audio feedback.
+
+The use of pixel-art sprites, tilemap-based level design, camera-follow systems, gravity and collision handling, and optimized rendering pipelines highlights the practical application of computer graphics concepts. Additionally, the incorporation of a Markov Chain-based word generation system enables adaptive difficulty scaling, contributing to a balanced and skill-based gameplay experience.
+
+Overall, the project delivers a functional, visually coherent, and performance-optimized 2D game prototype. As a Computer Graphics mini project, Typescape effectively demonstrates how interactive systems can be built by combining graphics techniques, input handling, and procedural content generation.
+
+\section{Limitations}
+Despite meeting its core objectives, the project has certain limitations:
+\begin{itemize}[nosep]
+  \item The Markov Chain word generation is performed offline, limiting real-time adaptability during gameplay.
+  \item The physics system is intentionally simple, focusing only on basic gravity and collision without advanced dynamics.
+  \item Visual effects are minimal and do not include advanced shaders or lighting techniques.
+  \item The leaderboard system uses a local text file and does not support online or persistent cloud-based storage.
+  \item The game currently supports only single-player mode.
+\end{itemize}
+
+\section{Future Scope}
+The project provides a strong foundation for further enhancements, including:
+\begin{itemize}[nosep]
+  \item Integration of real-time word generation and adaptive difficulty adjustment based on player performance.
+  \item Addition of advanced graphical effects such as shaders, dynamic lighting, and post-processing.
+  \item Expansion of gameplay mechanics, including multiple character abilities and environment interactions.
+  \item Implementation of multiplayer or competitive modes with online leaderboards.
+  \item Porting the game to additional platforms supported by the Godot Engine.
+\end{itemize}
+
+
+\chapter*{References}
+\addcontentsline{toc}{chapter}{References}
+
+\begin{enumerate}[nosep]
+\item Godot Documentation Team. (2023). \textit{Godot Engine documentation}. Retrieved from \url{https://docs.godotengine.org}
+
+\item Hsu, C. (2021). Typing games and educational design: A study on skill-based engagement.
+
+\item Kim, H., \& Peterson, L. (2019). Procedural content generation in games: Applications and challenges. \textit{Journal of Game Design and Development}.
+
+\item Smith, R., \& Lee, M. (2018). Esports and competitive play in gaming. \textit{Advances in Interactive Entertainment}, 10(3), 67--82.
+
+\item Chen, A., \& Smith, J. (2020). Game development patterns in 2D games: Efficient techniques for high performance. \textit{Game Development Journal}, 15(3), 213--225.
+\end{enumerate}
+
+
+\end{document}
+
+% Appendix with game screenshots (place actual image files in assets/images/)
+\clearpage
+\appendix
+\chapter{Appendix: Game Screenshots}
+\label{appendix:screenshots}
+
+The following figures show in-game screenshots. Replace the placeholder file names with the actual screenshot file names located in the project `assets/images/` folder.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/images/screenshot1.png}
+  \caption{Main menu and title screen}
+  \label{fig:screenshot1}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/images/screenshot2.png}
+  \caption{Gameplay view showing active word and HUD}
+  \label{fig:screenshot2}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/images/screenshot3.png}
+  \caption{Level completion / summary screen}
+  \label{fig:screenshot3}
+\end{figure}

@@ -303,10 +303,10 @@ frame_progress = 1.0
 script = ExtResource("47_38qcs")
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2D"]
-offset_left = -1.0
-offset_top = -2.0
-offset_right = 1165.0
-offset_bottom = 648.0
+offset_left = -117.0
+offset_top = -27.0
+offset_right = 1200.0
+offset_bottom = 679.0
 color = Color(0.0399417, 0.05, 0.0145, 0.439216)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
