@@ -1,0 +1,11 @@
+key,default,en_US
+ui_start,Start,Start
+ui_quit,Quit,Quit
+ui_resume,Resume,Resume
+ui_retry,Retry,Retry
+ui_next_level,Next Level,Next Level
+ui_score,Score,Score
+ui_best,Best,Best
+ui_pause,Paused,Paused
+ui_loading,Loading...,Loading...
+ui_level,Level,Level

@@ -1,0 +1,27 @@
+Telemetry Plan
+
+Goals
+1) Session start/stop timestamps
+2) Level completion counts
+3) Word difficulty distribution
+
+Godot outline (reference only)
+
+extends Node
+
+signal session_started(timestamp)
+signal session_ended(timestamp)
+
+var counters := {
+	"levels_completed": 0,
+	"words_easy": 0,
+	"words_medium": 0,
+	"words_hard": 0
+}
+
+func start_session() -> void:
+	emit_signal("session_started", Time.get_unix_time_from_system())
+
+func end_session() -> void:
+	emit_signal("session_ended", Time.get_unix_time_from_system())
+

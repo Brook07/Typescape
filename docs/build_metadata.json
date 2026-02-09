@@ -1,0 +1,9 @@
+{
+  "project": "Typescape",
+  "build_id": "local-dev",
+  "godot_version": "4.x",
+  "export_preset": "macos",
+  "commit": "0000000",
+  "asset_digest": "pending",
+  "notes": "CI metadata and asset audit snapshot. Not consumed by runtime."
+}
